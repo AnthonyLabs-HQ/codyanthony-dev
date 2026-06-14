@@ -9,30 +9,42 @@ When I joined as ROSA's first dedicated technical writer, its documentation was 
 
 ## The challenge
 
-ROSA's docs had grown organically through feature launches, so the information architecture mirrored the product's features instead of the customer's goals. Voice-of-Customer data and engagement metrics showed the cost: fragmentation, duplication, and navigation that made customers assemble information from several pages. Getting-started workflows were split across duplicate pages. Policy documentation was spread across multiple pages. Page titles named features rather than the job a customer was trying to do. The work was to move the information architecture from feature-centric to workflow-based while ROSA was still launching features continuously.
+ROSA's docs had grown organically through feature launches, leaving customers to assemble workflows from fragmented pages. Voice-of-Customer data and engagement metrics showed the cost: duplicate getting-started paths, policy documentation spread across multiple pages, and page titles that reflected product features more than customer intent.
+
+I redesigned the information architecture while ROSA was still launching features continuously, consolidating fragmented content without slowing the feature documentation roadmap.
 
 ## The restructure
 
-I ran a content audit when I joined that mapped the Jobs-to-be-Done opportunities, then held that plan while prioritizing new-feature documentation through ROSA's growth phase. Once organizational standards aligned with the workflow-centric direction, I re-validated the audit and executed the restructure in a single two-week sprint:
+I first mapped the Jobs-to-be-Done opportunities through a self-initiated content audit in 2022. The audit identified where ROSA documentation could better support the customer journey by consolidating duplicate pages, removing fragmented paths, and reorganizing content around customer goals.
 
-- **Consolidated cluster-creation workflows.** Merged the duplicate auto-mode and manual-mode getting-started pages, identical except for a `--mode` flag in step one, into one guide with console and CLI tabs. This required AWS engineering to unlock AsciiDoc tablist support, previously limited to legacy publishing formats, and shipped as the first AWS production use of the syntax. Customers no longer had to choose a deployment path before they understood the difference, and could switch approaches mid-workflow.
-- **Consolidated policy documentation.** Restructured the AWS managed-policies content from a fragmented split into a single scannable reference, eliminating four duplicate pages and simplifying both customer navigation and internal review.
-- **Introduced environment variables in CLI procedures.** Turned error-prone copy-paste commands into reproducible ones, reducing configuration errors from mistyped values.
-- **Retitled pages to customer goals.** Renamed pages to match the job a customer is doing, such as _Create your first cluster_, rather than the underlying feature, improving findability.
+Emerging feature-launch work took priority before I could execute the full restructure, but I kept the redesign active on the backlog and addressed pieces as roadmap capacity allowed. When Jobs-to-be-Done became an organization-wide documentation priority, I was already positioned to move quickly: I revalidated the audit, aligned stakeholders on scope, and executed the restructure in a single sprint.
 
-I led the review across AWS and Red Hat Product, Engineering, and documentation stakeholders to align on scope and keep the cross-vendor narrative coherent.
+## The restructure
+
+I first mapped the Jobs-to-be-Done opportunities through a self-initiated content audit in 2022. The audit identified where ROSA documentation could better support the customer journey by consolidating duplicate pages, removing fragmented paths, and reorganizing content around customer goals.
+
+Emerging feature-launch work took priority before I could execute the full restructure, but I kept the redesign active on the backlog and addressed pieces as roadmap capacity allowed. When Jobs-to-be-Done became an organization-wide documentation priority, I was already positioned to move quickly: I revalidated the audit, aligned stakeholders on scope, and executed the restructure in a single sprint.
+
+- **Consolidated cluster-creation workflows.** Merged duplicate getting-started paths into one guide with console and CLI tabs, so customers could compare deployment approaches without leaving the workflow. This required AWS engineering to enable AsciiDoc tablist support in the production publishing system and shipped as the first AWS production use of the syntax.
+- **Consolidated policy documentation.** Restructured fragmented IAM policy documentation into a single scannable reference, eliminating four duplicate pages and simplifying both customer navigation and internal review.
+- **Introduced environment variables in CLI procedures.** Reworked copy-paste commands into reusable procedures, reducing the risk of configuration errors from mistyped values.
+- **Retitled pages to customer goals.** Renamed pages around the job a customer was trying to complete, such as _Create your first cluster_, rather than the underlying feature name.
+
+I led the review across AWS and Red Hat product, engineering, and documentation stakeholders to align on scope and keep the cross-vendor narrative coherent.
 
 ## What this demonstrates
 
-- Jobs-to-be-Done information architecture: reorganizing a sprawling, feature-centric doc set around customer workflows
-- Consolidating duplication and fragmentation into maintainable, goal-based guidance
-- Format innovation in service of IA: the first AWS production use of AsciiDoc tablist syntax
-- Sequencing strategic IA work against an active feature-launch roadmap
-- Cross-vendor coordination across AWS and Red Hat
+- Using Jobs-to-be-Done principles to reshape documentation strategy
+- Turning audit findings, Voice-of-Customer data, and engagement signals into an executable IA plan
+- Sequencing strategic IA work alongside an active feature-launch roadmap
+- Driving format and publishing-system changes in service of better customer workflows
+- Coordinating review across AWS and Red Hat product, engineering, and documentation stakeholders
 
 ## Outcomes
 
-The restructure consolidated fragmented and duplicate content into workflow-based guidance, aligned titles and structure to customer jobs, and shipped with first-pass content-review approval, among the first in the organizational cohort to complete a Jobs-to-be-Done restructuring.
+The restructure gave ROSA customers a clearer path through core workflows. Instead of choosing between duplicate getting-started pages or assembling policy information from scattered references, customers could follow consolidated, goal-based guidance organized around the work they were trying to complete.
+
+The work also made the documentation easier to maintain. It removed duplicate pages, aligned titles and navigation to customer jobs, and shipped with first-pass content-review approval. The restructure was among the first in its organizational cohort to complete a Jobs-to-be-Done redesign while the service continued launching features.
 
 ## Live documentation
 
