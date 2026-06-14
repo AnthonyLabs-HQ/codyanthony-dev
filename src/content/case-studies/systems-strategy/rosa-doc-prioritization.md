@@ -1,19 +1,19 @@
 ---
 title: Documentation Prioritization Framework
-description: A tiered, RICE-aligned prioritization framework and a quarterly review that aligned ROSA documentation and product partners on what to document first.
+description: A tiered, RICE-aligned prioritization framework and quarterly review that helped ROSA documentation and its partners align on what to document first.
 section: documentation-strategy
 order: 15
 ---
 
-ROSA was launching features continuously, and documentation requests came in faster than they could be sequenced by hand. I built a prioritization framework and a quarterly review that gave documentation and its product partners a shared way to decide what to document first. This sits alongside the [ROSA Jobs-to-be-Done Content Redesign](/case-studies/systems-strategy/rosa-jtbd-redesign/) as part of putting ROSA documentation on a strategic footing.
+ROSA was in a fast, continuous feature-launch phase, with documentation demands coming from multiple directions: product roadmap commitments, customer support needs, and strategic documentation priorities such as the [ROSA Jobs-to-be-Done Content Redesign](/case-studies/systems-strategy/rosa-jtbd-redesign/). I was carrying this alongside other major initiatives, including founding documentation for [Amazon EVS as that service spun up](/case-studies/console-ux/evs-day1-deployment/).
 
 ## The challenge
 
-ROSA was in a fast, continuous feature-launch phase, and documentation requests arrived faster than they could be sequenced by hand. I was carrying this alongside other work: leading the [XML-to-AsciiDoc modernization](/case-studies/systems-strategy/adoc-modernization/) and, as a second service spun up, founding the documentation for [Amazon EVS](/case-studies/console-ux/evs-day1-deployment/). With competing demands coming from multiple services and their product and engineering partners, the team needed a shared way to decide what to document first, so the highest-impact work led and documentation and partners were working from the same priorities.
+The team needed a shared way to sequence the work so the highest-impact documentation led, lower-impact requests did not crowd out critical customer needs, and documentation partners could align around a documentation roadmap that accounted for upstream product priorities.
 
 ## The prioritization framework
 
-I built a tiered prioritization model that ranks documentation work by customer impact, with trust and security first:
+I built a tiered prioritization model that helped ROSA documentation sequence work across product roadmap commitments, customer-impacting gaps, support trends, and strategic documentation priorities, with security and trust first:
 
 1. Security and trust
 2. Usability blockers
@@ -21,15 +21,18 @@ I built a tiered prioritization model that ranks documentation work by customer 
 4. Strategic campaigns
 5. New features
 
-I stack-ranked the tiers using the RICE framework (reach, impact, confidence, effort) so the model lined up with how product managers already prioritized, which made it easy to align on. To put it to work, I established the first quarterly business review for ROSA documentation with product leadership, using Voice-of-Customer data and support trends to surface gaps and align on sequence. I framed the model as shared prioritization principles that documentation and its service partners could apply together.
+I aligned the model with RICE principles -- reach, impact, confidence, and effort -- so it mapped to how product managers already thought about prioritization. That made the framework easier to explain, easier to adopt, and easier to use in tradeoff conversations.
+
+To put the model into practice, I established the first quarterly business review (QBR) for ROSA documentation with product leadership. The review used Voice-of-Customer (VoC) data and support trends to surface gaps, evaluate competing requests, and align on sequence. I framed the framework as shared prioritization principles that documentation and service partners could apply together.
 
 ## What this demonstrates
 
-- Bringing a clear prioritization framework to documentation, grounded in customer impact
-- Speaking the product team's language (RICE) to align on sequence
-- Establishing a recurring governance forum, the QBR, and running it from customer data
-- Giving documentation and product partners a shared way to sequence the work
+- Documentation prioritization grounded in customer impact
+- Product-aligned decision-making using RICE principles
+- Governance through a recurring quarterly business review
+- Use of Voice-of-Customer data and support trends to guide documentation investment
+- A shared sequencing model for documentation, product, engineering, and support partners
 
 ## Outcomes
 
-The framework gave ROSA documentation a clear, shared way to sequence work, and the QBR became where documentation and product partners aligned on what to take on next. Documentation leadership recognized the framework and the QBR as a model for how a service team can run documentation prioritization.
+The framework gave ROSA documentation a clear way to sequence work across product roadmap commitments, customer support needs, and strategic documention priorities. The quarterly review became the forum where documentation and product partners aligned on what to take on next, using customer data rather than ad hoc request order. Documentation leadership recognized the framework and QBR as a model for aligning cross-functional teams around a documentation-owned roadmap that had to account for multiple upstream priorities.
