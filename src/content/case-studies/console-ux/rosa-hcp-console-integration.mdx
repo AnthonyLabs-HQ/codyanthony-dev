@@ -14,13 +14,14 @@ import rosaContractWizard from "../../../assets/rosa-contract-wizard.png";
 ROSA launched a new deployment model, ROSA with hosted control planes (HCP), that creates clusters in about 10 minutes instead of the 40-plus that ROSA Classic takes. For the Q2 2023 launch, I designed the console UI text and the user documentation in parallel and aligned terminology across AWS and Red Hat for a new Marketplace billing model. This is the console and documentation view; for the broader ROSA information-architecture work, see [ROSA Jobs-to-be-Done Content Redesign](/case-studies/systems-strategy/rosa-jtbd-redesign/).
 
 <Image src={rosaGetStarted} alt="ROSA Console Get Started Page" />
-_ROSA console Get Started page guiding customers through the enablement workflow_
+_ROSA console Get Started page guiding customers through the enablement
+workflow_
 
 ## The challenge
 
-ROSA bills through AWS Marketplace, and HCP introduced a second billing model alongside Classic. Classic uses AMI-based billing by EC2 instance count; HCP uses SaaS-based billing. Each needs its own contract purchase flow, so a single streamlined path could not cover both. The original Marketplace experience also added friction and undercut ROSA's positioning as a first-party AWS service.
+ROSA with hosted control planes introduced a second deployment and billing model alongside ROSA Classic. Classic and HCP required different AWS Marketplace contract paths, so the console could not rely on one generic enablement flow. Customers needed to understand which model they were choosing, why the billing setup differed, and what to do next.
 
-Customers experience ROSA as one journey, from contract enablement through cluster deployment and the handoff to the Red Hat console for cluster creation. The launch needed contract flows for both billing models, clear differentiation between Classic and HCP, a smooth AWS-to-Red Hat transition, and consistent terminology across both companies' surfaces.
+The experience also spanned company boundaries. Customers moved from AWS Marketplace enablement to the AWS console, AWS documentation, and then the Red Hat console for cluster creation. The launch needed clear differentiation between Classic and HCP, a smooth AWS-to-Red Hat transition, and consistent terminology across both companies' surfaces.
 
 <Image src={rosaContractsHcp} alt="ROSA Contracts Page" />
 _Contracts page showing the ROSA with hosted control planes option with
@@ -28,30 +29,40 @@ consistent terminology_
 
 ## Aligning terminology first
 
-Before any design work, I organized sessions with AWS and Red Hat product leadership to standardize the naming. We aligned on ROSA with hosted control planes, since "with hosted control planes" was already standard across Red Hat products, which let customers connect it to Red Hat's other offerings. Settling terminology up front kept the AWS console, the AWS docs, and Red Hat's materials consistent and prevented downstream rework.
+Before design work began, I organized sessions with AWS and Red Hat product leadership to standardize the naming. We aligned on **ROSA with hosted control planes**, because “with hosted control planes” was already standard across Red Hat products and helped customers connect the ROSA launch to the broader OpenShift portfolio.
+
+Settling terminology up front kept the AWS console, AWS documentation, and Red Hat materials consistent, and prevented downstream rework as the launch moved through design, documentation, and product review.
 
 ## Designing the console and documentation together
 
-Over weekly design workshops with the PM, UX designer, and console developer, I drafted the console microcopy, help-panel content, and user guides together and revised them against UX, PM, and engineering feedback. I wrote the UI text for the six states of the ROSA Enablement card on the console homepage, from not-yet-enabled through setup, enabled, and the error states, each with a clear status and next step, plus a pricing card explaining HCP and Classic. I created the help-panel content from scratch for this new experience, covering why Marketplace integration is required for HCP and how its billing differs from Classic, so customers got answers at the point of need.
+Over weekly design workshops with the product manager, UX designer, and console developer, I drafted the console microcopy, help-panel content, and user documentation together, then revised them against UX, PM, and engineering feedback.
 
-The documentation was built as part of the same surface. I gathered inputs from product, UX, engineering, solution architects, and Red Hat partners, and validated the workflows through hands-on testing, which surfaced gaps the specs alone did not. I also reviewed Red Hat's parallel HCP Quickstart and STS cluster-creation guides for AWS terminology accuracy and prerequisite alignment, so the cross-company journey stayed consistent.
+I wrote the UI text for the six states of the ROSA Enablement card on the console homepage, from not-yet-enabled through setup, enabled, and the error states. Each state gave customers a clear status and next step. I also wrote the pricing-card text that explained the relationship between HCP and Classic.
+
+I created the help-panel content from scratch for the new experience, including guidance on why AWS Marketplace integration was required and how HCP billing differed from Classic. The goal was to answer billing and enablement questions at the point of need, before customers left the console flow.
+
+The documentation was built as part of the same product surface. I gathered inputs from product, UX, engineering, solution architects, and Red Hat partners, then validated the workflows through hands-on testing, which surfaced gaps the specs alone did not. I also reviewed Red Hat's parallel HCP Quickstart and STS cluster-creation guides for AWS terminology accuracy and prerequisite alignment, so the cross-company journey stayed consistent.
 
 <Image src={rosaHelpPanel} alt="ROSA Help Panel" />
 _Help panel providing contextual guidance on ROSA enablement requirements_
 
 <Image src={rosaContractWizard} alt="Contract Purchase Wizard" />
-_Contract purchase workflow with UI text guiding customers through billing setup_
+_Contract purchase workflow with UI text guiding customers through billing
+setup_
 
 ## What this demonstrates
 
-- Designing console UI text and documentation as one product experience
-- Cross-company terminology governance across AWS and Red Hat, settled ahead of design
-- Content for two billing models without overcomplicating the common path
-- Validating workflows through hands-on product testing
+- Designing console UI text, help panels, and documentation as one launch experience
+- Establishing terminology governance before design and documentation work scaled
+- Explaining two billing models without overcomplicating the customer path
+- Validating product workflows through hands-on testing, not specs alone
+- Coordinating cross-company guidance across AWS and Red Hat surfaces
 
 ## Outcomes
 
-The console and documentation shipped on schedule, enabling the launch of a strategically important offering, and the integrated approach moved through UX approval with minimal rework. The terminology alignment kept AWS and Red Hat materials consistent, and the processes established here became the template for later ROSA console and documentation work.
+The console and documentation shipped on schedule for the Q2 2023 HCP launch, enabling a strategically important ROSA offering. Customers got a clearer path for choosing between Classic and HCP, understanding the billing difference, and moving from AWS Marketplace setup into cluster creation.
+
+The terminology alignment kept AWS and Red Hat materials consistent, while the integrated console-and-docs process moved through UX approval with minimal rework. The work established a pattern for later ROSA experiences: align terminology first, design the console and documentation together, and validate the end-to-end workflow before launch.
 
 ## Live documentation
 
