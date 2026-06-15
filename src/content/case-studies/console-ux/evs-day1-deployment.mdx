@@ -15,54 +15,44 @@ import evsNetworkConfigHelpPanel from "../../../assets/evs-network-config-help-p
 Amazon EVS lets enterprises migrate VMware workloads to AWS without re-architecting them. I created the console UI text, 28 help panels, and deployment documentation as one unified Day 1 experience, shipping on schedule through private preview, public preview, and general availability. This is the console and documentation view; for the upstream design influence it draws on, see [Design Influence & Upstream Collaboration](/case-studies/console-ux/console-api-design/). EVS was one of several concurrent workstreams I sequenced with a [Documentation Prioritization Framework](/case-studies/systems-strategy/rosa-doc-prioritization/).
 
 <Image src={evsGetStarted} alt="EVS Console Get Started Page" />
-_EVS console Get Started page guiding customers through deployment prerequisites_
+_EVS console Get Started page guiding customers through deployment
+prerequisites_
 
 ## The challenge
 
-EVS deployment is networking-heavy: BGP routing through VPC Route Server, VLAN subnet allocation across more than ten network types, and dependencies on VPC, IPAM, Service Quotas, and Route 53, all coordinated with VMware components. The customers doing it are often VMware administrators new to AWS networking, so the Day 1 experience had to bridge two mental models while keeping a complex setup on track.
+EVS deployment is networking-heavy: BGP routing through VPC Route Server, VLAN subnet allocation across more than ten network types, and dependencies on VPC, IPAM, Service Quotas, and Route 53, all coordinated with VMware components. Many users are VMware administrators who are experienced with VMware infrastructure but new to AWS networking, so the Day 1 experience had to bridge both mental models while keeping a complex setup on track.
 
-Public preview testing surfaced a specific, high-impact friction point. The DNS hostname inputs were free-form with no console-side validation, so customers entered invalid hostnames, or full FQDNs where a hostname was expected, and the failure only surfaced late in provisioning, forcing them to restart.
-
-<Image src={evsDnsHostnames} alt="DNS Hostname Configuration Step" />
-_DNS hostname configuration step where validation failures revealed the need for
-better guidance_
+Public preview testing surfaced a specific, high-impact friction point. The DNS hostname inputs were free-form with no console-side validation, so customers entered invalid hostnames, or full FQDNs where only a hostname was expected. Those failures surfaced late in provisioning, forcing customers to restart after they had already completed much of the workflow.
 
 ## Designing the Day 1 experience
 
-I developed the console UI text and a 28-panel help system alongside the documentation, treating them as one experience. I led weekly UI-text workshops with PMs, UX designers, and console developers and gave feedback through the Figma reviews, so the content and the design shaped each other.
+The response was to move guidance into the workflow. Instead of relying on customers to discover prerequisites in separate documentation or recover from late provisioning failures, the experience needed to surface requirements when they mattered, explain AWS networking concepts in VMware terms, and connect each console step to deeper documentation.
 
-The console work covered the six-step environment-creation wizard: step instructions, field labels and descriptions, validation and error messaging, and status and confirmation flows. The 28 help panels ran from a main environments overview down to field-level help for the hardest inputs, including VPC Route Server, VLAN subnets, DNS hostnames, and VMware licensing. The VPC Route Server panel, for example, explained BGP routing and peer ASN configuration in terms a VMware admin new to AWS could act on.
+I developed the console UI text, 28-panel help system, and deployment documentation in parallel. I led weekly UI-text workshops with product managers, UX designers, and console developers and gave feedback through Figma reviews, so the content and design shaped each other.
 
-<Image src={evsNetworkConfigHelpPanel} alt="Network Configuration Help Panel" />
-_Network configuration step with contextual help for complex VLAN subnet
-requirements_
+The console work covered the six-step environment-creation wizard: step instructions, field labels and descriptions, validation and error messaging, and status and confirmation flows. The help panels ran from a main environments overview down to field-level help for the hardest inputs, including VPC Route Server, VLAN subnets, DNS hostnames, and VMware licensing. The VPC Route Server panel, for example, explained BGP routing and peer ASN configuration in terms a VMware admin new to AWS could act on.
 
 ## Fixing the DNS validation friction
 
-When public preview feedback pointed at DNS validation as the main friction point, I worked with PMs, UX, and engineering on a coordinated fix across the console and the documentation.
+When public preview feedback pointed to DNS validation as a major friction point, I worked with product, UX, and engineering on a coordinated fix across the console and documentation.
 
-On the console: introductory text explaining the DNS hostname requirements and where to configure DNS records (the VPC DHCP option set); an info callout clarifying that the field takes a hostname, with a link to the detailed user guide topic; two contextual help panels covering DNS configuration and the validation checkpoint; field-level instructional text and validation messaging; and a confirmation checkbox acknowledging that the hostname inputs match the customer's DNS records.
+In the console, I added content that helped customers understand the DNS requirements before provisioning began: introductory guidance, field-level instructional text, validation messaging, an info callout clarifying that the field expected a hostname rather than a full FQDN, and a confirmation checkpoint acknowledging that the hostname inputs matched the customer's DNS records. I also created contextual help panels covering DNS configuration and the validation checkpoint.
 
-In the documentation, shipped with GA: expanded DNS configuration requirements, added DHCP-options-set setup, and surfaced DNS requirements earlier in the deployment prerequisites checklist. Business leadership had flagged this as high priority in weekly reviews, and handling the console and docs as one experience let the fixes land together without separate review cycles for each surface.
-
-<Image src={evsDnsHelpPanel1} alt="DNS Configuration Help Panel" />
-_Management appliance DNS hostnames help panel explaining DNS configuration
-requirements_
-
-<Image src={evsDnsContraintText} alt="DNS Validation Error" />
-_Validation error state when customers continue without the required hostname
-inputs_
+In the documentation, I expanded the DNS configuration requirements, added DHCP options set setup guidance, and surfaced DNS requirements earlier in the deployment prerequisites checklist. Product leadership had flagged this as high priority in weekly reviews, and handling the console and docs together let the fixes land without separate review cycles for each surface.
 
 ## What this demonstrates
 
-- Designing console UI text, help content, and documentation as one Day 1 experience
-- Customer-data-driven iteration: turning preview friction into a coordinated console-and-docs fix
+- Designing console UI text, help content, and documentation as one deployment experience
+- Preview-feedback-driven iteration: turning launch friction into a coordinated console-and-docs fix
 - Dual-audience content that bridges VMware and AWS mental models
-- Embedded participation in design, through weekly workshops, Figma reviews, and daily engineering syncs
+- Embedded participation in design through weekly workshops, Figma reviews, and engineering syncs
+- Translating complex networking prerequisites into actionable guidance at the point of need
 
 ## Outcomes
 
-The console, help panels, and documentation shipped on schedule through private preview, public preview, and GA, as a coordinated launch across the user guide, API guide, CloudFormation reference, console, help panels, and documentation landing page. The 28 help panels passed UX design review on the first submission, which validated developing the UI text in the weekly workshops. The DNS validation fix addressed the root cause of the deployment friction that surfaced in preview.
+The console, help panels, and documentation shipped on schedule through private preview, public preview, and general availability. The 28 help panels passed UX design review on the first submission, validating the workshop-based approach to developing UI text with design and engineering.
+
+The DNS fix addressed the failure path that surfaced in preview by moving critical guidance earlier in the workflow, clarifying hostname requirements in the console, and matching that guidance in the deployment documentation.
 
 ## Live documentation
 
