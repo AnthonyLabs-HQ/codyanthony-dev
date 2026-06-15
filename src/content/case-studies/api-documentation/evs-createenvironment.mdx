@@ -14,51 +14,43 @@ This API reference for Amazon Elastic VMware Service demonstrates my approach to
 
 ## Project context
 
-The CreateEnvironment operation is the core deployment API for EVS, requiring comprehensive documentation of complex networking, licensing, and infrastructure parameters.
+`CreateEnvironment` is the core deployment API for Amazon EVS. It requires customers to supply networking, licensing, host, DNS, security, and VCF configuration in one operation, with several constraints that must be correct before provisioning begins.
 
 ## My role and ownership
 
-I participated in the API design phase, shaping parameter names, validation rules, and error messages before writing the reference documentation.
+I authored the Amazon EVS API Reference for public preview and general availability, covering every public operation in the guide: operation descriptions, request and response structures, parameter descriptions, data type descriptions, validation guidance, and exception documentation.
+
+This sample focuses on `CreateEnvironment` because it is the most complex and customer-critical operation in the API. It is the point where a customer creates an EVS environment and connects it to the customer-owned VPC that contains the networking, DNS, host, licensing, and security resources EVS requires.
+
+I participated in the API design phase for EVS, contributing to parameter naming, validation rules, error messaging, and constraint placement before writing the public reference documentation. I also validated request patterns, parameter behavior, and error responses against the live API so the published reference matched real product behavior.
 
 ## What the work solved
 
-- Prevented trial-and-error through upfront constraint documentation
-- Eliminated common integration errors by explicitly defining parameter dependencies and validation rules
-- Enabled developer self-service through actionable, scenario-based error messages
+- Reduced trial-and-error by documenting constraints before developers submitted deployment requests.
+- Made parameter dependencies and mutual exclusivity explicit, including cases such as `dedicatedHostId` and `placementGroupId`.
+- Gave developers clearer recovery paths by documenting validation behavior and error responses alongside the request model.
 
-## Deliverables
+## Validation approach
 
-**Documentation produced:**
-
-- Complete API reference with all required and optional parameters, used as input for SDKs
-- Request syntax with validated JSON structures
-- Constraint documentation (CIDR blocks, license requirements, host minimums)
-- Error response documentation with resolution guidance
-- Parameter relationship documentation (mutual exclusivity, dependencies)
-
-**Tools used:**
-
-- Oxygen XML Editor
-- Git
-- AWS CLI for validating API parameter inputs, response outputs and error messages
-- Python scripts for executing complex resource creation
-- CloudFormation for automating test deployments in developer environments
+I validated the API reference against live behavior using the AWS CLI, test deployments, and supporting scripts for complex resource creation. That validation covered parameter inputs, response outputs, constraint behavior, and error messages, so the published reference described what the API actually did rather than only what the model implied. Because the API reference fed the downstream SDK documentation handoff required for deployment, accuracy in the reference was part of launch readiness, not just documentation polish.
 
 ## What this sample demonstrates
 
 - Developer-focused API reference for a complex, multi-parameter deployment operation
-- Constraint, validation-rule, and parameter-dependency documentation that prevents integration errors
-- Request and error examples verified by hand against the live API
-- A reference precise enough to serve as the upstream source for the AWS SDK team's published SDK documentation
+- Constraint and validation-rule documentation for networking, licensing, DNS, hosts, and security configuration
+- Parameter-dependency documentation that makes mutual exclusivity and required relationships explicit
+- Request and error behavior validated against the live API
+- Production API reference documentation that served as the source for downstream SDK documentation through the required API deployment handoff
 
 ## Live documentation
 
+- [Amazon EVS API Reference — full API reference guide authored for public preview and GA](https://docs.aws.amazon.com/evs/latest/APIReference/Welcome.html)
+- [CreateEnvironment API Reference — curated sample focus](https://docs.aws.amazon.com/evs/latest/APIReference/API_CreateEnvironment.html)
 - [PDF snapshot — EVS API Reference sample](/Cody_Anthony_Sample_2_API_Reference_CreateEnvironment.pdf)
-- [CreateEnvironment API Reference on docs.aws.amazon.com](https://docs.aws.amazon.com/evs/latest/APIReference/API_CreateEnvironment.html)
 
 ---
 
-<Aside type="note" title="Note on authorship and live documentation">
+<Aside type="note" title="Note on authorship and excerpt selection">
 
 Response syntax and administrative parameters (e.g., tags, names, site IDs) have been omitted to focus on the service-specific network, compute, and security configuration inputs.
 
