@@ -11,31 +11,29 @@ This is the AWS CloudFormation reference for Amazon Elastic VMware Service, the 
 
 ## Project context
 
-EVS deploys VMware Cloud Foundation onto AWS infrastructure, and many customers provision it as code rather than through the console or API directly. CloudFormation is the AWS-native way to declare that infrastructure. The `AWS::EVS::Environment` resource exposes the full environment-creation surface, the VLAN subnets, host details, connectivity, and license inputs, as template properties, each with its own type, constraints, and required/optional status.
+EVS deploys VMware Cloud Foundation onto AWS infrastructure, and many customers provision that infrastructure as code rather than through the console or API directly. CloudFormation is the AWS-native way to declare that deployment in a repeatable template.
+
+The `AWS::EVS::Environment` resource exposes the full environment-creation surface — VLAN subnets, host details, connectivity, licenses, service access, VCF hostnames, version, and VPC configuration — as typed template properties. Each property needs clear required/optional status, constraints, update behavior, and relationship guidance for template authors.
 
 ## My role and ownership
 
-I owned the EVS CloudFormation reference across the service's launch arc, in parallel with the API reference and CloudFormation updates shipped for the HCX public-connectivity launch. Because I participated in the API design and authored the API reference, the property documentation stays consistent across both surfaces: a customer reading the API reference and a customer writing a CloudFormation template see the same constraints described the same way.
+I authored the EVS CloudFormation reference for public preview, general availability, and the HCX public-connectivity launch, in parallel with the EVS API reference and user guide.
+
+Because I also participated in API design and authored the API reference, I kept the CloudFormation property documentation consistent with the API surface while adapting it for a declarative template model. A customer reading the API reference and a customer writing a CloudFormation template should see the same constraints described in the language of the surface they are using.
 
 ## What the work solved
 
-- **Declarative provisioning.** Template authors get a complete, accurate property reference instead of reverse-engineering the resource shape from the API.
-- **Consistency across surfaces.** The same validation rules and parameter relationships are documented identically in the API reference, the CloudFormation reference, and the user guide, so customers do not get conflicting guidance depending on how they deploy.
-- **Integration guidance.** The user guide page ties the resource reference to a working getting-started path, so a reader sees both the property-level detail and how to use it end to end.
-
-## Deliverables
-
-**Documentation produced:**
-
-- The `AWS::EVS::Environment` resource reference, covering the full environment-creation surface as declarative template properties
-- Typed property documentation with constraints, patterns, and required or optional status
-- Cross-surface consistency with the EVS API reference and user guide
+**Declarative provisioning.** Template authors got a complete property reference for provisioning EVS environments through CloudFormation instead of reverse-engineering the resource shape from API behavior.
+**Cross-surface consistency.** The same validation rules, constraints, and resource relationships were documented consistently across the API reference, CloudFormation reference, and user guide.
+**Template-author clarity.** The reference made required properties, patterns, allowed values, and update behavior explicit so customers could understand what had to be set at creation time and what could not be changed later.
 
 ## What this sample demonstrates
 
-- Reference documentation for infrastructure-as-code, a distinct discipline from prose docs
-- Cross-surface consistency between API and CloudFormation references owned by one writer
-- Accurate documentation of typed properties, constraints, and resource relationships
+- Infrastructure-as-code reference documentation for a complex CloudFormation resource
+- Translating API operation inputs into declarative template properties for template authors
+- Cross-surface consistency between API, CloudFormation, and user-guide documentation
+- Clear documentation of typed properties, constraints, patterns, allowed values, and update behavior
+- Resource-lifecycle guidance that helps customers understand what must be configured at creation time
 
 ## Live documentation
 
@@ -45,9 +43,9 @@ I owned the EVS CloudFormation reference across the service's launch arc, in par
 
 ---
 
-<Aside type="note" title="Note on authorship and live documentation">
+<Aside type="note" title="Note on authorship and excerpt selection">
 
-This curated excerpt shows the `AWS::EVS::Environment` resource definition, a trimmed syntax skeleton, and a selection of property definitions. I've narrowed the full property list to the service-specific networking, licensing, and version inputs. The property text is reproduced from the live reference.
+This curated excerpt shows the `AWS::EVS::Environment` resource definition, a trimmed syntax skeleton, and selected property definitions from the live reference. I narrowed the full property list to the service-specific networking, licensing, and version inputs so the sample highlights the template-author constraints that matter most for environment creation.
 
 </Aside>
 
