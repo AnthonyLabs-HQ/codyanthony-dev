@@ -11,33 +11,25 @@ This migration guide for Amazon Elastic VMware Service demonstrates VMware HCX d
 
 ## Project context
 
-The guide addresses a dual-audience challenge: AWS architects need VMware HCX context, while VMware administrators need AWS networking guidance spanning VPC, Transit Gateway, AWS Direct Connect, Site-to-Site VPN, IPAM, and Elastic IP configuration. This work shipped with the EVS HCX public connectivity feature launch in Q3 2025.
+The guide addresses a dual-audience challenge: AWS architects need VMware HCX context, while VMware administrators need AWS networking guidance across VPC, Transit Gateway, AWS Direct Connect, Site-to-Site VPN, IPAM, and Elastic IP configuration. This work shipped with the EVS HCX public connectivity feature launch in Q3 2025.
 
 ## My role and ownership
 
-I worked with EVS product and engineering teams throughout 2024-2025 to develop the migration guide, performing in-depth cross-service research to document public internet connectivity as an alternative to private dedicated connections. The documentation strategy compares architectural trade-offs between connectivity options and surfaces Elastic IP association requirements upfront, addressing customer decision-making needs before deployment.
+I worked with EVS product and engineering teams throughout 2024 and 2025 to develop the migration guidance, performing cross-service research across AWS networking services and VMware HCX. The documentation strategy compared private and public connectivity options, surfaced Elastic IP association requirements upfront, and helped customers understand the tradeoffs before choosing a migration path.
 
 ## What the work solved
 
-- **Cost optimization:** Enabled a lower-cost migration tier by documenting the "Public Internet" path, removing the barrier of expensive Direct Connect circuits for smaller customers.
-- **Architectural enablement:** Documented critical trade-offs between private and public connectivity, providing the technical decision matrix used to validate customer deployment models.
-
-## Deliverables
-
-**Documentation produced:**
-
-- HCX migration workflow with connectivity architecture options
-- Private connectivity architecture (AWS Direct Connect, Site-to-Site VPN)
-- Public connectivity architecture with EIP association procedures
-- Connectivity decision framework (comparison table)
-- Network ACL and route table configuration guidance
+- **Connectivity choice.** Documented a public internet migration path for customers who did not have, or did not want to start with, dedicated private connectivity.
+- **Architecture decision support.** Compared private and public connectivity options so customers could evaluate performance, cost, setup complexity, and security considerations before deployment.
+- **Upfront requirement visibility.** Surfaced Elastic IP, IPAM, VLAN, routing, and network ACL requirements before customers began configuring HCX connectivity.
 
 ## What this sample demonstrates
 
-- Cross-service technical research across VPC, IPAM, Transit Gateway, Direct Connect, Site-to-Site VPN, and Elastic IPs
-- A connectivity decision framework comparing private and public architectures
-- A lower-cost public-internet migration path documented with EIP association procedures
-- Trade-off documentation that supports customer decision-making before deployment
+- Cross-service technical research across VPC, IPAM, Transit Gateway, Direct Connect, Site-to-Site VPN, Elastic IPs, and VMware HCX
+- Architecture tradeoff documentation that helps customers choose between private and public connectivity
+- Public internet migration guidance with Elastic IP association procedures
+- Security-aware networking documentation, including routing, network ACL, and public connectivity considerations
+- Dual-audience writing that bridges AWS networking and VMware migration concepts
 
 ## Live documentation
 
@@ -46,16 +38,9 @@ I worked with EVS product and engineering teams throughout 2024-2025 to develop 
 
 ---
 
-<Aside type="note" title="Note on authorship and live documentation">
+<Aside type="note" title="Note on authorship and excerpt selection">
 
-The complete HCX migration documentation includes VMware-specific configuration (DNS, NTP, licensing, vSphere distributed port group setup) and optional features (HCX WAN Optimization, Mobility Optimized Networking). This sample focuses on:
-
-- AWS networking architecture decisions (private vs public connectivity comparison)
-- Year-long cross-service research depth (VPC, IPAM, Service Quotas, EIPs, Transit Gateway, Direct Connect, Site-to-Site VPN, VMware HCX)
-- Elastic IP association workflow for public connectivity
-- Architectural trade-off documentation for customer decision-making
-
-I prioritized the AWS CLI workflow in this sample to demonstrate an API-First / Infrastructure-as-Code approach, which is the preferred method for enterprise automation.
+The complete HCX migration documentation includes VMware-specific configuration, private connectivity setup, public connectivity setup, and optional HCX features. This excerpt focuses on the architecture comparison, public internet connectivity model, Elastic IP association workflow, and AWS networking requirements to show the decision-support and cross-service research behind the guide.
 
 </Aside>
 
@@ -131,7 +116,7 @@ To enable internet connectivity without DNAT, Amazon EVS uses a specific CIDR co
 
 For steps to configure HCX with internet connectivity for Amazon EVS environment deployment, see [Setting up Amazon Elastic VMware Service](https://docs.aws.amazon.com/evs/latest/userguide/setting-up.html) and [Getting started with Amazon Elastic VMware Service](https://docs.aws.amazon.com/evs/latest/userguide/getting-started.html).
 
-### Operation considerations
+### Operational considerations
 
 - The HCX public VLAN CIDR block must have a /28 netmask length.
 - EIPs can be associated with or disassociated from the HCX public VLAN after deployment using the Amazon EVS console or AWS CLI, but they must be from the same IPAM pool.

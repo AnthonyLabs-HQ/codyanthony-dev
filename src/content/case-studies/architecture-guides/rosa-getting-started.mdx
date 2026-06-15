@@ -7,37 +7,32 @@ order: 40
 
 import Aside from "@components/Aside.astro";
 
-This Getting Started guide for Red Hat OpenShift Service on AWS (ROSA) with hosted control planes demonstrates CLI-based cluster deployment.
+This Getting Started guide for ROSA with hosted control planes demonstrates CLI-based cluster deployment using AWS infrastructure, Terraform, the ROSA CLI, AWS STS, and the Red Hat Hybrid Cloud Console.
 
 ## Project context
 
-The guide addresses a dual-audience challenge: AWS cloud architects need Kubernetes/OpenShift context, while Red Hat customers need AWS-specific infrastructure guidance (VPC architecture, IAM roles, AWS STS integration). The documentation strategy prioritizes Infrastructure-as-Code approaches (Terraform + ROSA CLI automation) over manual workflows, reflecting how most customers deploy ROSA with HCP clusters that provision in 10 minutes rather than the 40+ minutes required for legacy ROSA classic deployments.
+ROSA with hosted control planes introduced a faster cluster deployment model, reducing cluster creation time to about 10 minutes compared with the 40-plus minutes required for ROSA Classic. That speed changed the documentation challenge: setup guidance had to keep infrastructure prerequisites, IAM configuration, and cluster creation from becoming the new bottleneck.
+
+The guide addresses a dual-audience workflow. AWS cloud architects need enough OpenShift context to understand the cluster lifecycle, while OpenShift administrators need AWS-specific infrastructure guidance for VPC architecture, IAM roles, AWS STS integration, and subnet requirements. The documentation needed to bridge those mental models while keeping the deployment path executable end to end.
 
 ## My role and ownership
 
-I worked with AWS and Red Hat product leadership in Q2 2023 to standardize ROSA with hosted control planes product naming conventions and document VPC configuration requirements upfront, addressing customer friction where architecture mismatches were discovered late in deployment workflows.
+I authored the AWS-side getting-started guide and worked with AWS and Red Hat product, engineering, and documentation stakeholders to align the workflow. I helped standardize ROSA with hosted control planes terminology, documented VPC requirements before the deployment steps, and validated the workflow through hands-on testing so architecture mismatches surfaced in the guide rather than late in customer deployments.
 
 ## What the work solved
 
-- Enabled 10-minute cluster creation with upfront VPC requirement documentation to reduce configuration failures
-- Surfaced architecture requirements before deployment, reducing mismatches previously discovered late in the workflow
-
-## Deliverables
-
-**Documentation produced:**
-
-- Getting Started guide with VPC architecture requirements
-- IAM roles and OIDC configuration using AWS STS
-- ROSA CLI cluster creation workflow
-- Identity provider setup procedures
-- Application deployment verification
+- Gave customers an end-to-end deployment path from VPC setup through cluster creation and verification
+- Surfaced VPC, subnet, IAM, OIDC, and AWS STS requirements before the cluster creation command
+- Bridged AWS and OpenShift mental models in one workflow
+- Reduced late-stage deployment friction by documenting architecture constraints before customers started provisioning
 
 ## What this sample demonstrates
 
-- Dual-audience getting-started documentation bridging AWS and OpenShift mental models
-- Infrastructure-as-Code deployment workflow (Terraform + ROSA CLI)
-- Cross-company documentation collaboration with Red Hat
-- Upfront architectural constraint documentation (VPC requirements, AZ instance-type availability)
+- Dual-audience getting-started documentation that bridges AWS and OpenShift mental models
+- End-to-end procedural writing across Terraform, ROSA CLI, AWS STS, IAM, OIDC, and the Red Hat Hybrid Cloud Console
+- Cross-company documentation collaboration across AWS and Red Hat
+- Upfront architectural constraint documentation for VPC requirements, subnet design, and Availability Zone instance-type availability
+- Verification-oriented guidance that takes customers beyond cluster creation into confirming the deployment works
 
 ## Live documentation
 
@@ -45,14 +40,9 @@ I worked with AWS and Red Hat product leadership in Q2 2023 to standardize ROSA 
 
 ---
 
-<Aside type="note" title="Note on authorship and live documentation">
+<Aside type="note" title="Note on authorship and excerpt selection">
 
-The complete ROSA with HCP Getting Started guide includes alternative approaches for VPC creation (AWS CLI commands, console wizard), IAM resource creation (manual mode for review-before-execute workflows), and application deployment workflows on the Red Hat Hybrid Cloud Console. This sample focuses on the Infrastructure-as-Code deployment path (Terraform + ROSA CLI with auto mode) and AWS-owned infrastructure and platform deployment phases to demonstrate streamlined workflows and cross-company tooling collaboration. I selected these sections to showcase:
-
-- Cross-company documentation collaboration (AWS + Red Hat joint tooling)
-- Architectural constraint documentation (VPC requirements, AZ instance type availability)
-- Modern Infrastructure-as-Code approach (Terraform)
-- End-to-end customer journey (VPC → Cluster → Verification)
+The complete ROSA with HCP Getting Started guide includes alternative paths for VPC creation, IAM resource creation, and application deployment. This excerpt focuses on the Terraform-based VPC setup, ROSA CLI cluster creation, and AWS-owned infrastructure phases to show the core deployment path I authored and validated.
 
 </Aside>
 
