@@ -32,26 +32,19 @@ I owned the guide end-to-end: defined cross-service requirements, designed the i
 
 ## What the work solved
 
-To reduce failed deployments and configuration mismatches, I surfaced architectural constraints early so customers can validate service fit and compliance requirements before provisioning.
+I surfaced architectural constraints early so customers could validate service fit, network design, and compliance requirements before provisioning.
 
-- Reduced failed deployments by surfacing hard requirements before provisioning (e.g., Route Server endpoint/peer/ASN rules)
-- Prevented security boundary misconfigurations by clarifying NACL vs. security group enforcement on EVS VLAN subnets
-
-## Deliverables
-
-**Documentation produced:**
-
-- Network architecture guidance (BGP routing model, VPC Route Server endpoints/peers/propagation requirements)
-- Security boundary model (where NACLs apply and why security groups do not on EVS VLAN subnets)
-- Step-by-step deployment procedure (environment creation with embedded constraint checks)
-- Prerequisites and architectural limitations (go/no-go constraints with business/compliance implications)
+- Reduced the risk of failed deployments by documenting hard requirements before environment creation, including VPC Route Server endpoint, peer, ASN, and route propagation rules.
+- Helped prevent security boundary misconfigurations by clarifying that network ACLs, not security groups, control traffic on Amazon EVS VLAN subnets.
+- Made go/no-go constraints visible before setup, including IP addressing immutability, VCF version support, and boot volume encryption limitations.
 
 ## What this sample demonstrates
 
 - Translating VMware networking requirements into AWS terms for a dual audience
-- Cross-service constraint documentation (BGP dependencies on VPC Route Server)
-- A clear security boundary model (NACLs vs. security groups on EVS VLAN subnets)
+- Cross-service constraint documentation across Amazon EVS, VPC Route Server, route tables, BGP, and VLAN subnets
+- Clear security-boundary guidance for network ACLs versus security groups
 - Surfacing compliance and service-fit constraints before customers provision resources
+- Procedural writing that embeds validation checkpoints into the deployment flow
 
 ## Live documentation
 
@@ -61,10 +54,11 @@ To reduce failed deployments and configuration mismatches, I surfaced architectu
 
 ---
 
-<Aside type="note" title="Note on authorship and live documentation">
+<Aside type="note" title="Note on authorship and excerpt selection">
 
-This sample focuses on network architecture and security boundary configurations.
-I selected it to show how I defined cross-service constraints (for example, BGP dependencies on VPC Route Server) and documented security limitations, specifically regarding security groups and boot volume encryption support. In the published customer documentation, the boot volume encryption limitation is documented on the data protection page. In this portfolio excerpt, I’ve also included it as a getting started prerequisite to illustrate my core recommendation: constraints that affect compliance or service fit should appear before customers provision resources.
+This sample focuses on network architecture and security boundary configuration. I selected it to show how I documented cross-service constraints, including BGP dependencies on VPC Route Server, and service-fit limitations that customers needed to understand before provisioning.
+
+The published documentation covers these constraints across the getting-started and data protection pages. In this curated excerpt, I surface the boot volume encryption limitation earlier to illustrate my core recommendation: constraints that affect compliance or service fit should appear before customers create resources.
 
 </Aside>
 
