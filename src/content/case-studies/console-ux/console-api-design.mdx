@@ -5,51 +5,57 @@ section: content-design
 order: 10
 ---
 
-Across ROSA and Amazon EVS, I embedded with product and engineering teams early in the development cycle to shape console UX, API design, and product decisions while the documentation plan was still forming. Bringing documentation expertise into the design phase let me act as a customer-experience advocate in design discussions and resolve friction at its source. This page collects that upstream work; the linked case studies below show individual examples in depth.
+Across ROSA and Amazon EVS, I embedded with product and engineering teams early in the development cycle to shape console UX, API design, and product decisions while the documentation plan was still forming. Bringing documentation expertise into the design phase let me act as a customer-experience advocate in design discussions and resolve friction at its source.
+
+This page collects that upstream work. The related case studies below show individual examples in depth.
 
 ## The challenge
 
-By the time documentation usually starts, the API and console decisions that shape the customer experience are already made. Parameter names, error messages, validation timing, and terminology are hard to change once they ship, and a public API has to stay backward compatible. The opportunity is to bring the customer's perspective into those decisions while they are still being designed.
+By the time documentation usually starts, the API and console decisions that shape the customer experience are already made. Parameter names, error messages, validation timing, and terminology are hard to change once they ship, and a public API has to stay backward compatible. The opportunity was to bring the customer's perspective into those decisions while they were still being designed.
 
-## How I work upstream
+## How I worked upstream
 
-I join the weekly design workshops with product managers, UX designers, and console developers, review the Figma mockups, and give feedback on the workflows, UI text, and information architecture. I also carry operational knowledge between service teams, so a friction pattern one team has already hit does not repeat on the next. Because I am in the room for the design rationale, the documentation I write later reflects decisions I helped shape.
+I joined weekly design workshops with product managers, UX designers, and console developers, reviewed Figma mockups, and gave feedback on workflows, UI text, and information architecture. I also carried operational knowledge between service teams, so a friction pattern one team had already hit did not repeat on the next.
+
+Because I was in the room for the design rationale, the documentation I wrote later reflected decisions I helped shape, not just decisions I documented after the fact.
 
 ## Design contributions
 
-Across ROSA and EVS, I contributed detail-level improvements during the design phase, the kind of upstream work that shapes the API and console before any documentation exists.
+Across ROSA and EVS, I contributed detail-level improvements during the design phase, shaping the customer-facing API and console experience before launch.
 
 **Console and workflow design**
 
-- Recommended surfacing VPC Route Server prerequisites on the first screen instead of deeper in navigation, preventing mid-deployment validation errors.
-- Proposed a receipt-style cost summary with a table layout for the ROSA contract flow, making pricing easier to understand.
+- Recommended surfacing VPC Route Server prerequisites on the first screen instead of deeper in the workflow, preventing customers from discovering blocking requirements mid-deployment.
+- Proposed a receipt-style cost summary with a table layout for the ROSA contract flow, making pricing easier to compare and understand.
 
 **API and parameter design**
 
-- Proposed the name `serviceAccessSubnet` when the team needed one for a new component, chosen to be self-describing so its purpose is clear without a paragraph of explanation. It became the API parameter and the term used across the other surfaces.
-- Identified parameters that cannot be used together, such as `dedicatedHostId` and `placementGroupId`, so the mutual exclusivity is documented upfront.
-- Made sure validation constraints such as the CIDR block range (`/28` to `/24`) live in the parameter descriptions, not only in error messages, so customers can plan correctly before they provision.
+-Proposed the name `serviceAccessSubnet` for a new EVS component, chosen to be self-describing so its purpose was clear without a paragraph of explanation. It became the API parameter and the term used across related surfaces.
+
+- Identified parameters that could not be used together, such as `dedicatedHostId` and `placementGroupId`, so the mutual exclusivity was documented upfront.
+- Made sure validation constraints, such as the CIDR block range (`/28` to `/24`), lived in parameter descriptions and not only in error messages, so customers could plan correctly before provisioning.
 
 **Error messaging and validation**
 
 - Reworked vague errors such as `Invalid CIDR block` into specific guidance: `CIDR block must be between /28 and /24`.
-- Recommended surfacing validation earlier, so customers hit an error before they are deep in a workflow.
+- Recommended surfacing validation earlier in workflows, so customers hit actionable errors before they were deep into setup.
 
 **Terminology and consistency**
 
-- Aligned ROSA terminology across AWS and Red Hat surfaces (console and documentation) and contributed to upstream OpenShift Container Platform documentation updates, managing dependencies so changes did not break existing references.
-- Coordinated EVS and VPC alignment on VLAN terminology, contributing to the VPC API reference and documentation so the narrative stayed coherent across dependent services for both VMware and AWS audiences.
+- Aligned ROSA terminology across AWS and partner surfaces, including console and documentation, so customers saw consistent language across the cross-company experience.
+- Coordinated EVS and VPC alignment on VLAN terminology, contributing to API reference and documentation updates so the narrative stayed coherent across dependent services for both VMware and AWS audiences.
 
 ## What this demonstrates
 
-- Bringing customer-experience perspective into API and console design, upstream of documentation
+- Bringing customer-experience perspective into API and console design before documentation starts
 - Detail-level API craft: parameter naming, mutual exclusivity, validation constraints, and error messaging
 - Cross-service and cross-company terminology coordination
 - Treating documentation expertise as design input during development
+- Turning downstream documentation concerns into upstream product improvements
 
 ## Outcomes
 
-These contributions were adopted into the shipped ROSA and EVS consoles and APIs. The result is product surfaces where the customer-facing details, the names, errors, constraints, and terminology, were settled during design and the documentation could describe a coherent experience.
+These contributions were adopted into shipped ROSA and EVS console and API surfaces. The result was a more coherent customer experience: names, errors, constraints, and terminology were settled during design, so the documentation could describe a product experience that had already been shaped for clarity.
 
 ## Related case studies
 
