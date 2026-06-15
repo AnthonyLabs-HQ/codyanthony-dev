@@ -5,33 +5,35 @@ section: content-design
 order: 40
 ---
 
-During the design of EVS's HCX public connectivity feature, I took part in the API design reviews as the documentation lead and helped the team land on an extensible, backward-compatible design. The feature removed a significant cost barrier to EVS adoption, and getting the API shape right at v1 mattered because AWS APIs stay backward compatible for the life of the service.
+During the design of EVS's HCX public connectivity feature, I took part in the API design reviews as the documentation lead and helped the team land on an extensible, backward-compatible design. The feature removed a significant cost barrier to EVS adoption by letting customers migrate VMware workloads over the internet instead of requiring a dedicated Direct Connect circuit. Getting the API shape right at v1 mattered because AWS APIs stay backward compatible for the life of the service.
 
 ## The challenge
 
-HCX public connectivity lets customers migrate VMware workloads to EVS over the internet, without a dedicated Direct Connect circuit, which removes a real cost barrier for smaller customers. Since EVS is a migration service and HCX is its primary migration tool, the feature was strategically important for broadening adoption.
+HCX public connectivity lets customers migrate VMware workloads to EVS over the internet, without a dedicated Direct Connect circuit. Since EVS is a migration service and HCX is its primary migration tool, the feature was strategically important for broadening adoption.
 
-The feature needed to associate an elastic IP with an HCX appliance. Elastic IPs give the stable, persistent public address HCX needs; a dynamic address that changes on reboot would break the migration connection. The initial design was a single-purpose API operation scoped just to that association. A public AWS API stays backward compatible for the life of the service, so a one-off operation would lock the team into either living with it indefinitely or making a breaking change later.
+The feature needed to associate an elastic IP address with an HCX appliance. Elastic IPs give the stable, persistent public address HCX needs; a dynamic address that changes on reboot would break the migration connection. The initial design was a single-purpose API operation scoped only to that association.
+
+A public AWS API stays backward compatible for the life of the service, so a one-off operation would create long-term cost. The team would either have to carry the narrow operation indefinitely or introduce a future breaking change to support broader capabilities.
 
 ## Shaping the design
 
-Earlier in the cycle I had set up regular syncs with EVS PMs and engineers and worked inside their project tooling, which gave me visibility into upcoming design decisions and a seat in the API reviews.
+Earlier in the cycle, I had set up regular syncs with EVS product managers and engineers and worked inside their project tooling. That gave me visibility into upcoming design decisions and a seat in API reviews before the documentation phase.
 
-I framed the decision around AWS API design standards and the customer's experience, and walked the team through the trade-offs instead of prescribing a solution:
+In the design review, I helped surface the trade-offs behind the API shape:
 
-- Speed versus sustainability: a single-purpose operation ships faster and accrues technical debt.
-- Flexibility versus simplicity: an extensible design takes more upfront thought and supports future capabilities.
-- Alignment versus independence: building on existing AWS and VPC patterns improves consistency and calls for cross-team coordination.
+**Speed versus sustainability:** a single-purpose operation could ship faster but risked locking in a narrow API shape.
+**Flexibility versus simplicity:** an extensible design required more upfront thought but could support future capabilities.
+**Alignment versus independence:** building on existing AWS and VPC patterns improved consistency, but required cross-team coordination.
 
-I also surfaced parallel VPC development the team could build on to reduce implementation overhead, and kept the focus on the downstream customer cost. In concrete terms, the single-purpose version would have made developers call a separate one-off operation forever to do something a parameter on the existing call could handle.
+I also connected the discussion to existing AWS and VPC API patterns, showing how a more extensible design could reduce both customer friction and long-term maintenance. The customer-facing issue was straightforward: a single-purpose operation would have forced developers to call a separate HCX-specific API indefinitely, when the same behavior could be handled more cleanly as part of a broader operation.
 
 ## What this demonstrates
 
-- Customer-experience advocacy in API architecture, from a documentation seat
-- Working from AWS API design standards and backward-compatibility constraints
-- Collaborative influence through trade-off framing, surfacing options for the team to weigh
-- Cross-service awareness, spotting reusable VPC work that lowered implementation cost
+- Customer-experience advocacy in API architecture from a documentation seat
+- Applying AWS API design standards and backward-compatibility constraints during design
+- Collaborative influence through trade-off framing instead of late-stage documentation feedback
+- Cross-service awareness, including spotting reusable VPC work that lowered implementation cost
 
 ## Outcomes
 
-The team adopted an extensible, backward-compatible design that covers the current HCX association and leaves room for future capabilities without breaking changes. HCX public connectivity launched in Q3 2025, with documentation shipping across every surface at the same time. The result is a cleaner API for customers building on EVS and less long-term maintenance for the team.
+The team adopted an extensible, backward-compatible design that covered the current HCX association and left room for future capabilities without breaking changes. HCX public connectivity launched in Q3 2025, with documentation shipping across every surface at the same time. The result was a cleaner API for customers building on EVS and less long-term maintenance burden for the service team. For a related example of how EVS API design translated into customer-facing reference documentation, see [CreateEnvironment API Documentation](/case-studies/api-documentation/evs-createenvironment/).
