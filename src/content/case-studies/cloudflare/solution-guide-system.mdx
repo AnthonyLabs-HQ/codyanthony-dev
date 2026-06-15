@@ -37,13 +37,13 @@ The content model encodes the decisions that keep guides consistent and maintain
 
 ## The authoring system
 
-The guides are produced by a two-command workflow, an audit followed by a draft, with a structured handoff between them. I built it in three deliberately separated layers using OpenCode and Claude, with Python for the deterministic work.
+The guides are produced through a two-command workflow: an audit followed by a draft, with a structured handoff between them. I built the system in three deliberately separated layers using OpenCode, Claude, and Python.
 
-**Deterministic layer (Python).** Scripts handle the work that needs no judgment and must be identical every run: page discovery, relevance scoring, freshness from version history, broken-link detection, configuration extraction, and mechanical structure validation of the draft. Broken-link counts and structural checks are treated as ground truth.
+**Deterministic layer.** Python scripts handle the work that should be identical every run: page discovery, relevance scoring, freshness checks from version history, broken-link detection, configuration extraction, and mechanical structure validation of the draft. Broken-link counts and structural checks are treated as ground truth.
 
-**Agentic layer (rubric-constrained Claude agents).** A content-auditor subagent reads each candidate page at low temperature and applies fixed rubrics, content health, reuse potential, and goal-first vs. product-first framing, citing one piece of page evidence for every judgment and writing structured output rather than free-form notes. An adversarial challenger then reviews the high-relevance assessments for unsupported claims before they are accepted. The drafting agent writes against source documentation, flags any claim it composes rather than copies with a `VERIFY` tag for human confirmation, and a deterministic check flags regulatory terms (FIPS, PCI DSS, FedRAMP, and similar) so no compliance claim ships without a cited source.
+**Agentic layer.** Claude agents handle judgment-heavy review, but only inside constrained rubrics. A content-auditor agent assesses candidate pages for content health, reuse potential, and goal-first versus product-first framing, citing page evidence for each judgment. A reviewer agent challenges high-relevance assessments for unsupported claims before they move forward. The drafting agent writes from source documentation and flags composed claims with a VERIFY tag for human confirmation. A deterministic check also flags regulatory terms such as FIPS, PCI DSS, and FedRAMP, so no compliance claim ships without a cited source.
 
-**Human layer.** I designed the decision space the agents operate inside, the rubrics, the goal-first editorial principle, the reuse criteria, and the plan-tier logic, and I make the calls the system structurally cannot. The validation gates between steps are guardrails, not the final authority. Human judgment is.
+**Human layer.** I designed the decision space the agents operate inside: the rubrics, the goal-first editorial principle, the reuse criteria, and the plan-tier logic. The validation gates reduce risk between steps, but they are not the final authority. Human judgment remains the final gate.
 
 <Aside type="note" title="Why the layers are separated">
 
@@ -53,11 +53,13 @@ A constraint that proved out early: binding the agents to structured fields with
 
 ## What this demonstrates
 
-- Defining a new content type and getting it adopted through a public style guide
+- Defining a new public content type and adoption path through the Cloudflare style guide
 - Designing a cross-product content model and information architecture from scratch
-- Building a docs-as-code authoring system that scales quality without a writer becoming the bottleneck
-- Integrating deterministic automation and agentic AI under explicit human judgment, with validation gates between steps
-- Shipping the enablement (definitions, patterns, reviews) that lets other writers contribute
+- Building a docs-as-code authoring system that lets quality scale without a single writer becoming the bottleneck
+- Combining deterministic automation and constrained AI agents with human editorial judgment
+- Creating enablement artifacts — definitions, patterns, and review standards — that help other writers contribute consistently
+
+## Outcomes
 
 ## Outcomes
 
@@ -65,4 +67,4 @@ The work moved Cloudflare from ad hoc cross-product documentation to a defined s
 
 The content type shipped publicly in the Cloudflare style guide, and the first guides produced from the model became a reference set for future cross-product guidance.
 
-The authoring workflow turned what could have remained a bespoke, writer-dependent process into a reusable system for producing, reviewing, and maintaining cross-product documentation with greater consistency.
+The authoring workflow turned what could have remained a bespoke, writer-dependent process into a reusable system. Deterministic checks handled discovery, freshness, link health, and structure; constrained agents produced auditable assessments and drafts; and human review remained focused on editorial judgment, product accuracy, and launch readiness.
