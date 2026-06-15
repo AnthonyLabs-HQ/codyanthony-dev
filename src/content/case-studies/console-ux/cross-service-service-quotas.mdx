@@ -8,28 +8,28 @@ order: 20
 import { Image } from "astro:assets";
 import evsServiceQuotasValidation from "../../../assets/evs-service-quotas-validation.png";
 
-During Amazon EVS public preview planning, I helped shape a foundational decision about how the service would handle account quotas. Drawing on operational patterns from earlier AWS managed-service launches, I recommended integrating with the standard Service Quotas API and tuning the default limits so customers could self-serve instead of waiting on manual support. This is a product-strategy contribution from a documentation seat; for the console and documentation work it connects to, see [EVS Day 1 Deployment Experience](/case-studies/console-ux/evs-day1-deployment/).
+During Amazon EVS public preview planning, I helped shape an early decision about how the service would handle account quotas. Drawing on operational patterns from earlier AWS managed-service launches, I recommended integrating with the standard Service Quotas API and tuning the default limits so customers could self-serve more of the setup path instead of relying on manual support. This is a product-strategy contribution from a documentation seat; for the console and documentation work it connects to, see [EVS Day 1 Deployment Experience](/case-studies/console-ux/evs-day1-deployment/).
 
 ## The challenge
 
-EVS was a brand-new service, and planning was trending toward custom quota-validation logic. Custom logic works at launch but ages poorly: when a customer needs a quota increase, it routes them into a manual support workflow, and as request volume grows those manual review cycles stretch deployment timelines for the customers trying to scale. I had seen that pattern on earlier launches, so I raised the long-term cost before it was baked in.
+EVS was a brand-new service, and planning was trending toward custom quota-validation logic. Custom logic can solve the launch need, but it often creates Day 2 scaling costs: when customers need quota increases, they route into manual support workflows, and as request volume grows those review cycles can stretch deployment timelines for customers trying to scale. I had seen that pattern on earlier launches, so I raised the long-term customer and operational cost before the design was locked in.
 
 ## Shaping the integration strategy
 
-I shared that operational experience with EVS product leadership and framed the decision as launch speed versus Day 2 operability. Earlier services that took the custom-logic path had run into quota-handling bottlenecks and customer friction as they scaled, and bringing that forward shifted the conversation from launch deadlines toward scalable customer experience. The team came to see that designing for self-service upfront would cost less than retrofitting the architecture after launch.
+I shared that operational experience with EVS product leadership and framed the decision as launch speed versus Day 2 operability. Earlier services that took the custom-logic path had run into quota-handling bottlenecks and customer friction as they scaled. Bringing that pattern forward helped shift the conversation from the launch milestone alone toward scalable customer experience.
 
-I also suggested calibrating the quota defaults alongside the integration. Restrictive initial limits can force a support request before a customer has finished onboarding, so I recommended setting the default environment and host-count limits to cover typical starter use cases. Early public preview data supported the direction: reducing setup friction was decisive for first-time deployment success.
+I also suggested calibrating the quota defaults alongside the integration. Restrictive initial limits can force a support request before a customer has finished onboarding, so I recommended setting the default environment and host-count limits to cover typical starter use cases. Early public preview feedback reinforced the direction: reducing setup friction mattered for first-time deployment success.
 
 ## What this demonstrates
 
 - Product-strategy influence from a documentation role, before architectural decisions were locked
-- Translating operational experience into a customer-experience case engineering could act on
+- Translating operational experience into a customer-experience case product and engineering could act on
 - Designing for Day 2 self-service, not only for the launch milestone
 - Treating quota defaults as part of the customer experience rather than an afterthought
 
 ## Outcomes
 
-EVS adopted the standard Service Quotas API integration, with partial onboarding in Q1 2025 and full onboarding in Q2 2025, and set the initial quota defaults to accommodate the majority of starter deployments. Customers get automated quota validation directly in the Create Environment wizard and proactive visibility into account readiness before they begin. The team avoids manual triage of routine increase requests, and the design scales with adoption instead of accumulating support load.
+EVS adopted the standard service quotas pattern and set initial quota defaults to support typical starter deployments. Customers get automated quota validation directly in the Create Environment wizard and proactive visibility into account readiness before they begin. The design reduces reliance on manual triage for routine quota-increase paths and gives the service a quota model that can scale with adoption.
 
 <Image src={evsServiceQuotasValidation} alt="EVS Service Quotas Validation" />
 _EVS Service Quotas validation in the Create Environment wizard, validating
