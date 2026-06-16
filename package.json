@@ -7,7 +7,7 @@
     "dev": "astro dev",
     "start": "astro dev",
     "lint:js": "eslint .",
-    "lint:md": "markdownlint-cli2",
+    "lint:md": "markdownlint-cli2 \"*.md\"",
     "lint": "pnpm run lint:js && pnpm run lint:md",
     "build": "pnpm run lint && pnpm astro check && astro build",
     "preview": "pnpm run build && wrangler dev --config dist/server/wrangler.json",
@@ -20,6 +20,7 @@
     "@astrojs/rss": "^4.0.18",
     "@astrojs/sitemap": "^3.7.3",
     "astro": "^6.4.2",
+    "globals": "^17.6.0",
     "sharp": "^0.34.2",
     "workers-og": "^0.0.27"
   },
