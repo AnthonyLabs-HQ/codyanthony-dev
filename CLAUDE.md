@@ -2,6 +2,13 @@
 
 Guidance for Claude Code (claude.ai/code) when working in this repository.
 
+## 🛡️ GITHUB APP & REPOSITORY GUARDRAILS
+
+- **Branch Enforcement:** You are strictly forbidden from committing or pushing directly to the `main` or `master` branches.
+- **Cloud PR Workflow:** When triggered by a GitHub App hook or webhook event, always isolate your changes inside a unique feature branch (e.g., `feature/ui-cleanup`) and issue a Pull Request. Do not trigger or request auto-merges.
+- **Credential Protection:** NEVER stage, track, or include environment configuration variables or local config files (e.g., `.env.production`, `.npmrc`) in any branch updates or commits.
+- **Pre-flight Check:** Run the repository's test runner suite locally before staging a Git commit or marking a PR as ready to ensure zero regressions occur.
+
 ## Commands
 
 This repo uses **pnpm** (pinned via `packageManager` in `package.json`).
