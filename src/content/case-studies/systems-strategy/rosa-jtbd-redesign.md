@@ -19,12 +19,6 @@ I first mapped the Jobs-to-be-Done opportunities through a self-initiated conten
 
 Emerging feature-launch work took priority before I could execute the full restructure, but I kept the redesign active on the backlog and addressed pieces as roadmap capacity allowed. When Jobs-to-be-Done became an organization-wide documentation priority, I was already positioned to move quickly: I revalidated the audit, aligned stakeholders on scope, and executed the restructure in a single sprint.
 
-## The restructure
-
-I first mapped the Jobs-to-be-Done opportunities through a self-initiated content audit in 2022. The audit identified where ROSA documentation could better support the customer journey by consolidating duplicate pages, removing fragmented paths, and reorganizing content around customer goals.
-
-Emerging feature-launch work took priority before I could execute the full restructure, but I kept the redesign active on the backlog and addressed pieces as roadmap capacity allowed. When Jobs-to-be-Done became an organization-wide documentation priority, I was already positioned to move quickly: I revalidated the audit, aligned stakeholders on scope, and executed the restructure in a single sprint.
-
 - **Consolidated cluster-creation workflows.** Merged duplicate getting-started paths into one guide with console and CLI tabs, so customers could compare deployment approaches without leaving the workflow. This required AWS engineering to enable AsciiDoc tablist support in the production publishing system and shipped as the first AWS production use of the syntax.
 - **Consolidated policy documentation.** Restructured fragmented IAM policy documentation into a single scannable reference, eliminating four duplicate pages and simplifying both customer navigation and internal review.
 - **Introduced environment variables in CLI procedures.** Reworked copy-paste commands into reusable procedures, reducing the risk of configuration errors from mistyped values.
