@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
+import sitemap from "@astrojs/sitemap";
 import cloudflare from "@astrojs/cloudflare";
 
 // https://astro.build/config
@@ -16,7 +17,7 @@ export default defineConfig({
   // Existing trailing-slash page URLs and the _redirects rules still resolve;
   // canonical <link> tags in BaseLayout handle SEO dedup.
   trailingSlash: "ignore",
-  integrations: [mdx()],
+  integrations: [mdx(), sitemap()],
   // @astrojs/cloudflare v13 runs on @cloudflare/vite-plugin, so the Workers
   // runtime (incl. R2 bindings declared in wrangler.jsonc) is wired into
   // `astro dev` automatically — no `platformProxy` flag needed. Bindings are

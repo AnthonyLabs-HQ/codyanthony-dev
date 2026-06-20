@@ -1,6 +1,6 @@
 ---
 title: ROSA Jobs-to-be-Done Content Redesign
-description: Restructuring ROSA documentation around customer workflows. Merged duplicate getting started pages into a tabbed interface, consolidated policy documentation, and retitled pages to match customer goals.
+description: "Restructuring ROSA docs around customer workflows: merged duplicate pages into a tabbed interface, consolidated policy docs, and retitled pages to match customer goals."
 section: documentation-strategy
 order: 20
 ---

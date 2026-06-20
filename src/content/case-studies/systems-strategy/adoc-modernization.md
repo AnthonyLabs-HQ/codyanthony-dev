@@ -1,6 +1,6 @@
 ---
 title: AsciiDoc Modernization Program
-description: Migrating AWS service documentation off legacy XML to AsciiDoc, unblocking engineering contributors and AI workflows. Started at ROSA, expanded across EKS, SAP on AWS, and high-compliance regions.
+description: Migrating AWS service docs from XML to AsciiDoc, unblocking contributors and AI workflows. From ROSA to EKS, SAP on AWS, and high-compliance regions.
 section: documentation-strategy
 order: 10
 ---
