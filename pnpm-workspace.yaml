@@ -3,3 +3,13 @@ allowBuilds:
   puppeteer: false
   sharp: true
   workerd: true
+
+overrides:
+  "@cloudflare/vite-plugin": ">=1.42.1"
+  vite: "7.3.5"
+  rollup: ">=4.59.0"
+  postcss: ">=8.5.10"
+  flatted: ">=3.4.2"
+  "minimatch@<4": "3.1.5"
+  markdown-it: ">=14.2.0"
+  js-yaml: ">=4.2.0"
