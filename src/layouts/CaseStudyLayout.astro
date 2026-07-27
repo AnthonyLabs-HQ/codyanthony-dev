@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 import Button from "../components/Button.astro";
+import MarkdownActions from "../components/MarkdownActions.astro";
 
 interface Props {
   title: string;
@@ -46,6 +47,7 @@ const markdownUrl = Astro.url.pathname.replace(/\/+$/, "") + ".md";
         </div>
       )
     }
+    <MarkdownActions href={markdownUrl} />
   </header>
 
   <article class="prose">

@@ -104,6 +104,36 @@ const caseStudies = defineCollection({
         the new shape. The pattern catches taxonomy drift before it ships.
       </p>
 
+      <h2>Built for machine readers</h2>
+      <p>
+        This site has two audiences: people, and the AI assistants fielding
+        questions about me. For the second audience, I built three things:
+      </p>
+      <ul>
+        <li>
+          <strong>llms.txt:</strong> <a href="/llms.txt">a map</a> of every
+          case study, post, and page, following the convention of linking to
+          Markdown renditions.
+        </li>
+        <li>
+          <strong>Markdown renditions:</strong> every article is also published
+          as a plain-Markdown <code>.md</code> sibling, generated at build time
+          from the authored source, so an AI assistant reads the same words at
+          a fraction of the tokens. Each page advertises its rendition via a
+          <code>rel="alternate"</code> link, and the copy-as-Markdown action on
+          every article hands the same file to humans working with an
+          assistant. (<a
+            href="/case-studies/cloudflare/solution-guide-system.md">Example
+          rendition →</a>)
+        </li>
+        <li>
+          <strong>Access policy:</strong> I allow verified AI fetchers, AI
+          search crawlers, and archivers through the site's bot protection and
+          block unverified scrapers. The declaration (robots.txt content
+          signals) and the enforcement (firewall rules) stay in sync.
+        </li>
+      </ul>
+
       <h2>Deployment as code</h2>
       <p>
         Deployment starts in <code>wrangler.jsonc</code>: the app name,
@@ -157,8 +187,9 @@ const caseStudies = defineCollection({
       <p>
         Adding <code>@astrojs/react</code> ships roughly 95 KB gzipped of
         framework code to every visitor before any of my code runs. The site's
-        interactive needs amount to a mobile menu toggle (a six-line inline
-        script) and image hover effects (CSS). That runtime cost isn't
+        interactive needs amount to a mobile menu toggle, a copy-as-Markdown
+        action, and image hover effects (CSS): a few lines of dependency-free
+        script. That runtime cost isn't
         justified. The architecture still supports adding any framework via
         Astro's islands model if a future case study needs an interactive embed.
       </p>
@@ -182,12 +213,13 @@ const caseStudies = defineCollection({
         <li>
           <strong>Prerendered pages:</strong> {prerenderedPages}. {caseStudies.length}{" "}
           case studies plus {standalonePages} standalone pages, all built to
-          static HTML. The OG-image and asset endpoints render on demand instead.
+          static HTML, and every article also ships a plain-Markdown rendition.
+          The OG-image and asset endpoints render on demand instead.
         </li>
         <li>
-          <strong>JavaScript files shipped to the browser:</strong> 0. No
-          framework runtime, no client-side router, no hydration cost. The only
-          inline JavaScript is the six-line mobile menu toggle.
+          <strong>Client JavaScript:</strong> two small dependency-free
+          behaviors: the mobile menu toggle and the copy-as-Markdown action.
+          No framework runtime, no client-side router, no hydration cost.
         </li>
         <li>
           <strong>Headshot:</strong> 7.2 KB at 1× WebP, 11 KB at 2× retina WebP.
