@@ -57,6 +57,8 @@ const articleSchema = {
     type="application/ld+json"
     set:html={JSON.stringify(articleSchema)}
   />
+  {/* Static agent rendition emitted by src/pages/blog/[...slug].md.ts */}
+  <link slot="head" rel="alternate" type="text/markdown" href={`/blog/${slug}.md`} />
 
   <header class="blog-post-header">
     <p class="case-study-header__eyebrow">
