@@ -8,6 +8,7 @@ Guidance for Claude Code (claude.ai/code) when working in this repository.
 - **Cloud PR Workflow:** When triggered by a GitHub App hook or webhook event, always isolate your changes inside a unique feature branch (e.g., `feature/ui-cleanup`) and issue a Pull Request. Do not trigger or request auto-merges.
 - **Credential Protection:** NEVER stage, track, or include environment configuration variables or local config files (e.g., `.env.production`, `.npmrc`) in any branch updates or commits.
 - **Pre-flight Check:** Run the repository's test runner suite locally before staging a Git commit or marking a PR as ready to ensure zero regressions occur.
+- **Deployment Gate:** Never run `pnpm deploy` (or any `wrangler deploy`) without explicit human approval for that specific deploy. Production releases happen after PR review and merge, from main. Pre-approval verification uses `pnpm preview` (local Worker), `pnpm astro check`, and build-output inspection, never the live site. The order is: build, verify locally, preview to a human, approval, commit/PR/merge, then deploy.
 
 ## Commands
 
