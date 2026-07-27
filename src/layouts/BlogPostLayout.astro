@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
+import MarkdownActions from "../components/MarkdownActions.astro";
 
 interface Props {
   title: string;
@@ -69,6 +70,7 @@ const articleSchema = {
     <p class="blog-post-meta">
       By Cody Anthony · <time datetime={isoDate}>{formattedDate}</time> · {readingTime} min read
     </p>
+    <MarkdownActions href={`/blog/${slug}.md`} />
   </header>
 
   <article class="prose">

@@ -2,7 +2,7 @@
 
 > Portfolio of Cody Anthony, a documentation strategist specializing in content systems for complex software products: information architecture, docs-as-code, editorial standards, and AI-assisted documentation workflows with human-in-the-loop validation. Eight years of shipped work across AWS (Amazon EVS launch documentation, the ROSA documentation practice, the DocBook XML→AsciiDoc modernization program) and Cloudflare (the solution-guide content type and its agentic authoring pipeline).
 
-Every case-study and blog link below points to a plain-Markdown rendition generated from the authored source (not an HTML conversion). For the rendered HTML page, replace the trailing `.md` with a trailing slash. Every case study describes shipped production work; several link to public, verifiable artifacts (AWS documentation, Cloudflare docs pull requests).
+Every case-study and blog link below points to a plain-Markdown rendition generated from the authored source. For the rendered HTML page, replace the trailing `.md` with a trailing slash. Every case study describes shipped production work; several link to public, verifiable artifacts (AWS documentation, Cloudflare docs pull requests).
 
 ## Case studies — documentation strategy & systems
 

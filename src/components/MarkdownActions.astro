@@ -1,0 +1,43 @@
+---
+/**
+ * Human-visible affordances for the machine renditions: copy the static .md
+ * sibling to the clipboard, or open it directly. The renditions are emitted
+ * at build time from the authored source by the [...slug].md.ts routes in
+ * src/pages; /about-this-site/ documents the full agent surface.
+ */
+interface Props {
+  /** Site-absolute path of the .md rendition (e.g. "/blog/post.md"). */
+  href: string;
+}
+
+const { href } = Astro.props;
+---
+
+<p class="md-actions">
+  <button class="md-actions__copy" type="button" data-md-href={href}>
+    Copy as Markdown
+  </button>
+  <span class="md-actions__sep" aria-hidden="true">·</span>
+  <a class="md-actions__view" href={href}>View as Markdown</a>
+</p>
+
+<script>
+  document
+    .querySelectorAll<HTMLButtonElement>(".md-actions__copy")
+    .forEach((button) => {
+      button.addEventListener("click", async () => {
+        const original = button.textContent;
+        try {
+          const response = await fetch(button.dataset.mdHref ?? "");
+          if (!response.ok) throw new Error(String(response.status));
+          await navigator.clipboard.writeText(await response.text());
+          button.textContent = "Copied";
+        } catch {
+          button.textContent = "Copy failed";
+        }
+        window.setTimeout(() => {
+          button.textContent = original;
+        }, 2000);
+      });
+    });
+</script>
