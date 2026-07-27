@@ -18,9 +18,13 @@ const sectionLabel: Record<Props["section"], string> = {
 };
 
 const breadcrumb = sectionLabel[section];
+
+// Static agent rendition emitted by src/pages/case-studies/[...slug].md.ts
+const markdownUrl = Astro.url.pathname.replace(/\/+$/, "") + ".md";
 ---
 
 <BaseLayout title={title} description={description}>
+  <link slot="head" rel="alternate" type="text/markdown" href={markdownUrl} />
   <header class="case-study-header">
     <p class="case-study-header__eyebrow">
       <a href="/case-studies/">Case Studies</a> &nbsp;/&nbsp; {breadcrumb}
