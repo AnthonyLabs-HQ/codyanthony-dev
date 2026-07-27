@@ -1,0 +1,48 @@
+# Cody Anthony — Documentation Strategist
+
+> Portfolio of Cody Anthony, a documentation strategist specializing in content systems for complex software products: information architecture, docs-as-code, editorial standards, and AI-assisted documentation workflows with human-in-the-loop validation. Eight years of shipped work across AWS (Amazon EVS launch documentation, the ROSA documentation practice, the DocBook XML→AsciiDoc modernization program) and Cloudflare (the solution-guide content type and its agentic authoring pipeline).
+
+Every case study describes shipped production work; several link to public, verifiable artifacts (AWS documentation, Cloudflare docs pull requests).
+
+## Case studies — documentation strategy & systems
+
+- [Solution Guide Content Type & Authoring System](https://codyanthony.dev/case-studies/cloudflare/solution-guide-system/): A new cross-product content type at Cloudflare — content model, information architecture, and the agentic authoring pipeline built to scale it.
+- [AI-Assisted Content Gap Analysis](https://codyanthony.dev/case-studies/cloudflare/ai-content-gap-analysis/): Mining developer feedback across public and internal channels to quantify documentation gaps and ground the solution-guide content type in real evidence.
+- [AsciiDoc Modernization Program](https://codyanthony.dev/case-studies/systems-strategy/adoc-modernization/): Migrating AWS service docs from XML to AsciiDoc, unblocking contributors and AI workflows. From ROSA to EKS, SAP on AWS, and high-compliance regions.
+- [Documentation Prioritization Framework](https://codyanthony.dev/case-studies/systems-strategy/rosa-doc-prioritization/): A tiered, RICE-aligned prioritization framework and quarterly review that helped ROSA documentation and its partners align on what to document first.
+- [ROSA Jobs-to-be-Done Content Redesign](https://codyanthony.dev/case-studies/systems-strategy/rosa-jtbd-redesign/): Restructuring ROSA docs around customer workflows — merged duplicate pages, consolidated policy docs, and retitled pages to match customer goals.
+
+## Case studies — technical documentation & reference
+
+- [EVS CreateEnvironment API Reference](https://codyanthony.dev/case-studies/api-documentation/evs-createenvironment/): Parameter constraints, validation rules, and error responses, each example verified against the live API.
+- [Amazon EVS CloudFormation Reference](https://codyanthony.dev/case-studies/api-documentation/evs-cloudformation/): Resource and property docs for environment-creation parameters, written for template authors.
+- [Amazon EVS Getting Started Guide](https://codyanthony.dev/case-studies/architecture-guides/evs-getting-started/): Owned end-to-end across three launches. Written for on-prem VMware administrators new to AWS networking.
+- [EVS HCX Migration & Connectivity](https://codyanthony.dev/case-studies/architecture-guides/evs-hcx-migration/): Private and public connectivity paths, covering VPC, IPAM, Transit Gateway, Direct Connect, and Elastic IPs.
+- [ROSA with HCP Getting Started Guide](https://codyanthony.dev/case-studies/architecture-guides/rosa-getting-started/): Terraform and CLI-based workflow for provisioning ROSA clusters.
+- [Cloudflare Cross-Product Solution Guides](https://codyanthony.dev/case-studies/cloudflare/solution-guides/): Cookbook-style workflows across multiple products, authored docs-as-code and completable on Free plans.
+
+## Case studies — product content design
+
+- [Design Influence & Upstream Collaboration](https://codyanthony.dev/case-studies/console-ux/console-api-design/): Embedding with product and engineering during design, shaping console UX and API decisions before documentation plans get written.
+- [EVS API Exception UX](https://codyanthony.dev/case-studies/console-ux/evs-api-exception-ux/): Aligning a public API's exceptions with real product behavior and AWS API standards — standards-aligned errors with clear deprecation guidance over removing API surface.
+- [EVS Day 1 Deployment Experience](https://codyanthony.dev/case-studies/console-ux/evs-day1-deployment/): Console microcopy, 28 help panels, and deployment documentation designed as a unified Day 1 experience, shipped with general availability.
+- [HCX API Design Collaboration](https://codyanthony.dev/case-studies/console-ux/evs-hcx-api-design/): Participating in EVS HCX API design reviews as the docs lead, surfacing maintainability concerns and aligning the API with AWS-wide standards.
+- [EVS VLAN Subnet Naming](https://codyanthony.dev/case-studies/console-ux/evs-vlan-naming/): Naming a new EVS networking resource so it serves both VMware and AWS audiences, carried consistently across every EVS surface.
+- [Cross-Service Service Quotas Integration Strategy](https://codyanthony.dev/case-studies/console-ux/cross-service-service-quotas/): How operational patterns from prior AWS launches shaped the Service Quotas design for Amazon EVS.
+- [ROSA with Hosted Control Planes Launch](https://codyanthony.dev/case-studies/console-ux/rosa-hcp-console-integration/): Console UX and documentation for the ROSA HCP launch, standardizing terminology across AWS and Red Hat.
+- [ROSA Day 1 Experience](https://codyanthony.dev/case-studies/console-ux/rosa-prerequisites-automation/): Console automation for ROSA prerequisite validation, paired with AWS-native getting started documentation.
+
+## Blog
+
+- [Where the Script Stops and the Judgment Starts](https://codyanthony.dev/blog/where-the-script-stops/): I expected automation to push human judgment out of the process. Building AI-assisted documentation systems convinced me the opposite might be happening.
+
+## Pages
+
+- [About](https://codyanthony.dev/about/): Background, experience, and contact.
+- [About this site](https://codyanthony.dev/about-this-site/): How this site is designed and built.
+- [Resume (PDF)](https://codyanthony.dev/assets/cody-anthony-resume.pdf): Current resume.
+
+## Optional
+
+- [Case studies index](https://codyanthony.dev/case-studies/): All case studies, grouped by discipline.
+- [RSS feed](https://codyanthony.dev/rss.xml): Blog subscription feed.
