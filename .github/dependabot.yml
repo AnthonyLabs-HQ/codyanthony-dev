@@ -1,0 +1,14 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    # No scheduled version-update PRs; this config exists to scope the
+    # grouped security updates GitHub runs by default.
+    open-pull-requests-limit: 0
+    ignore:
+      # Astro majors need a coordinated bump with @astrojs/mdx and
+      # @astrojs/cloudflare, which peer-require astro ^6. See PR #14.
+      - dependency-name: "astro"
+        update-types: ["version-update:semver-major"]
