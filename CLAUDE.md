@@ -111,7 +111,6 @@ Notable sections of `global.css`:
   From a case-study MDX at depth 3, the path is `../../../assets/<name>`.
 
 - **`public/`** — files that need stable URLs or that Astro can't process:
-  - `assets/cody-anthony-resume.pdf` — resume, linked from Home + About download buttons. URL stays stable when content changes; do not move into `src/assets/`.
   - `Cody_Anthony_Sample_1_*.pdf`, `Cody_Anthony_Sample_2_*.pdf` — writing-sample PDFs attached to case studies via the optional `pdf` frontmatter field.
   - `favicon.svg`, `og.png` — referenced by `BaseLayout.astro` via absolute paths.
   - `_redirects` — Cloudflare URL redirect rules (see Routing above).
