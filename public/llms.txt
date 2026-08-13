@@ -40,7 +40,6 @@ Every case-study and blog link below points to a plain-Markdown rendition genera
 
 - [About](https://codyanthony.dev/about/): Background, experience, and contact.
 - [About this site](https://codyanthony.dev/about-this-site/): How this site is designed and built.
-- [Resume (PDF)](https://codyanthony.dev/assets/cody-anthony-resume.pdf): Current resume.
 
 ## Optional
 
