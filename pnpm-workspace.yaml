@@ -12,4 +12,4 @@ overrides:
   flatted: ">=3.4.2"
   "minimatch@<4": "3.1.5"
   markdown-it: ">=14.2.0"
-  js-yaml: ">=4.2.0"
+  js-yaml: ">=4.2.0 <5"
